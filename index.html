@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <img src="netflix-logo.png" alt="Netflix Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">TV Shows</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">New & Popular</a></li>
+                <li><a href="#">My List</a></li>
+                <li><a href="#">Browse by Language</a></li>
+            </ul>
+            <div class="icon-container">
+                <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-link"><i class="fas fa-bell"></i></a>
+                <div class="dropdown">
+                    <a href="#" class="icon-link"><i class="fas fa-user"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="#">Manage Account</a>
+                        <a href="#">Sign Out of Netflix</a>
+                    </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="featured">
+        <img src="g&g.jpg" alt="Featured Movie">
+    
+    </section>
+
+    <section class="content-grid" id="infinite-scroll-container">
+        <div class="grid">
+            <div class="item">
+                <img src="nhie.jpg" alt="Movie 1">
+                <div class="overlay" style="display: none;">
+                    <button class="play">Play</button>
+                    <button class="add">+</button>
+                    <button class="like">&#x2764;</button>
+                </div>
+                <p>Never Have I Ever</p>
+            </div>
+            <div class="item">
+                <img src="tvd.jpg" alt="Series 1">
+                <p>The Vampire Diaries</p>
+            </div>
+            <div class="item">
+                <img src="wednesday.jpg" alt="Movie 1">
+                <p>wednesday</p>
+            </div>
+            <div class="item">
+                <img src="g&girls.jpg" alt="Series 1">
+                <p>Gilmore Girls</p>
+            </div>
+            <div class="item">
+                <img src="emily.jpg" alt="Movie 1">
+                <p>Emily In Paris</p>
+            </div>
+            <div class="item">
+                <img src="good.jpg" alt="Series 1">
+                <p>The School for Good & Evil</p>
+            </div>
+            <div class="item">
+                <img src="lucifer.jpg" alt="Movie 1">
+                <p>Lucifer</p>
+            </div>
+            <div class="item">
+                <img src="enola2.jpg" alt="Series 1">
+                <p>Enola Holmes 2</p>
+            </div>
+            <div class="item">
+                <img src="bridgerton.jpg" alt="Movie 1">
+                <p>Bridgerton</p>
+            </div>
+            <div class="item">
+                <img src="maid.jpg" alt="Movie 1">
+                <p>The Maid</p>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userIcon = document.querySelector('.dropdown > .icon-link');
+            const dropdownContent = document.querySelector('.dropdown-content');
+
+            userIcon.addEventListener('click', function(event) {
+                event.preventDefault();
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+
+            window.addEventListener('click', function(e) {
+                if (!userIcon.contains(e.target)) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

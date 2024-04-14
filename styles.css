@@ -1,0 +1,259 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #141414;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This will space the logo and the nav */
+}
+
+header .logo {
+    width: 100px;
+}
+
+nav {
+    align-self: stretch; /* Aligns nav to fill the header height */
+    display: flex;
+    justify-content: space-between; /* Separates menu items and icons */
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-link {
+    color: white;
+    margin-left: 15px;
+    font-size: 20px; /* Adjust size as needed */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; /* Aligns the dropdown to the right edge of its parent*/
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.featured {
+    background-color: #222; /* Adds a dark background */
+    color: white;
+    padding: 0; /* No padding around the container */
+    width: 100%; /* Full width of the viewport */
+    margin: 0; /* No margin for full-width effect */
+    overflow: hidden; /* Ensures no content spills out */
+    position: relative; /* Positioning context for any absolutely positioned children */
+    display: flex; /* Uses flex to help contain children */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+}
+
+.featured img {
+    width: 100%; /* Ensures the image stretches to cover the full container width */
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 1.80;
+    object-fit: cover; /* Ensures the image covers the area nicely, cropping as necessary */
+}
+
+.featured h2, .featured p {
+    padding: 10px 5%; /* Padding inside the featured section, adjust as needed */
+    margin: 0; /* Removes any default margin */
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.movie img {
+    width: 100%;
+    display: block;
+}
+
+.movie p {
+    color: #fff;
+    background-color: rgba(0,0,0,0.8);
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-image {
+    width: 100%;
+}
+
+.modal-buttons button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.details, .cast, .genre {
+    margin-top: 10px;
+}
+
+.content-grid {
+    padding: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    white-space: nowrap; /* Ensure grid items stay in a single line */
+    color: white;
+    height: 200px; /* Adjust based on your layout needs */
+}
+
+.grid {
+    display: flex; /* Use flexbox to lay items out in a row */
+    gap: 10px;
+}
+
+.item {
+    display: inline-block;
+    width: 150px; /* Fixed width for each item */
+    height: 150px; /* Adjust height to maintain the aspect ratio */
+}
+
+.item img {
+    width: 100%; /* Full width of the item */
+    height: 100px; /* Fixed height for images */
+    object-fit: cover; /* Cover the height and width without distortion */
+}
+
+.item p {
+    color: black;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.item img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.item:hover img {
+    transform: scale(1.1); /* Zoom effect */
+}
+
+.item:hover .overlay {
+    display: flex;
+    opacity: 1;
+}
+
+.play, .add, .like {
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    font-size: 16px;
+    background-color: #333; /* Dark background for buttons */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.play:hover, .add:hover, .like:hover {
+    background-color: #555; /* Lighter background on hover */
+}
